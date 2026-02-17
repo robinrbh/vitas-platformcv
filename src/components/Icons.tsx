@@ -29,8 +29,8 @@ export const GlobeIcon = () => (
 export const MicrosoftIcon = ({ className }: { className?: string }) => (
   <svg 
     className={className}
-    width="48" 
-    height="48" 
+    width="18" 
+    height="18" 
     viewBox="0 0 48 48" 
     fill="none" 
     xmlns="http://www.w3.org/2000/svg"

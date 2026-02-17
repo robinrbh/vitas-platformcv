@@ -7,7 +7,7 @@ export const VitasLogo = ({ className }: { className?: string }) => (
   >
     <defs>
       <style>
-        {`.e{fill:url(#d);}.f{fill:#cc2926;}.g{fill:#ffffff;}`}
+        {`.e{fill:url(#d);}.f{fill:#cc2926;}.g{fill:#032d5a;}`}
       </style>
       <linearGradient 
         id="d" 

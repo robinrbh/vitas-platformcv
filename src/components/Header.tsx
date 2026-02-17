@@ -13,13 +13,17 @@ export const Header = () => (
       <div className="logo-container">
         <VitasLogo />
       </div>
+      <h1 className="company-name">Vitas Data</h1>
+      <p className="subtitle">
+        Een IT-partner die dichtbij blijft
+      </p>
       <p className="tagline">
         Een hechte club van ruim 70 senior collega's die samen werken aan software, cloud & data vraagstukken.
       </p>
       <div className="contact-row">
         <div className="contact-item">
           <LocationIcon />
-          <span>Joure, Hilversum & Groningen</span>
+          <span>Joure & Groningen</span>
         </div>
         <div className="contact-item">
           <PhoneIcon />
@@ -30,10 +34,10 @@ export const Header = () => (
           <a href="mailto:gnakken@vitas.nl">gnakken@vitas.nl</a>
         </div>
         <div className="contact-item">
-          <GlobeIcon />
-          <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <MicrosoftIcon />
-          </span>
+          <a href="https://www.vitas.nl" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
+            <GlobeIcon />
+          </a>
+          <MicrosoftIcon />
         </div>
       </div>
       <div className="stats-grid">

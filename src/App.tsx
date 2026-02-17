@@ -1,6 +1,7 @@
 import './styles/main.scss'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
+import { CallToAction } from './components/CallToAction'
 import { Section } from './components/Section'
 import { SkillCard } from './components/SkillCard'
 import { ProjectCard } from './components/ProjectCard'
@@ -13,6 +14,23 @@ function App() {
   return (
     <div className="cv-container">
       <div className="cv-page">
+        {/* Decorative SVG lines */}
+        <div className="svg-line svg-line-left">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="176.05999755859375 76.51000213623047 58.01054382324219 246.97998046875">
+            <path fill="currentColor" d="M176.06,322.38c.33-.21.65-.42.98-.63,8.05-5.2,15.59-11.23,22.44-17.93,6-5.91,11.38-12.48,15.99-19.53,8.12-12.47,13.5-26.22,15.99-40.88,1.12-6.54,1.67-13.23,1.65-19.88-.02-6.19-.52-12.42-1.48-18.52-1.78-11.26-6.04-25.29-12.67-41.7-6.13-15.18-14.36-32.57-24.45-51.68-5.56-10.53-11.77-21.74-18.45-33.3v-1.82s.82,1.35.82,1.35c6.69,11.57,12.9,22.79,18.47,33.33,10.1,19.14,18.34,36.55,24.49,51.76,6.66,16.48,10.94,30.58,12.73,41.91.97,6.15,1.47,12.43,1.5,18.66.02,6.7-.54,13.45-1.66,20.05-2.52,14.79-7.94,28.67-16.13,41.24-4.65,7.11-10.07,13.73-16.12,19.69-6.89,6.75-14.49,12.82-22.59,18.05-.49.32-.98.63-1.48.94v-1.11Z"/>
+          </svg>
+        </div>
+        
+        <div className="svg-line svg-line-right">
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="142.4555206298828 97.17998504638672 82.4844970703125 194.07998657226562">
+            <path fill="currentColor" d="M224.93,98.25c-8.04,3.11-15.59,6.24-22.5,9.33-9.36,4.11-18.57,8.82-27.37,14.03-8.06,4.88-14.2,9.58-18.23,13.98-4.64,5.05-8.13,10.9-10.4,17.37-2.68,7.84-3.57,16.33-2.59,24.55.58,5.07,1.67,10.11,3.26,14.96,1.89,5.76,4.31,11.38,7.18,16.72,3.45,6.41,7.41,12.62,11.76,18.46,5.23,7.03,10.95,13.82,16.99,20.19,10.45,11.09,24.47,25.17,41.85,42.05l-.03,1.37c-17.71-17.18-31.96-31.49-42.55-42.73-6.06-6.39-11.81-13.21-17.06-20.28-4.38-5.88-8.36-12.13-11.83-18.59-2.9-5.39-5.34-11.07-7.25-16.88-1.61-4.92-2.72-10.01-3.31-15.15-1-8.37-.09-17.01,2.63-25,2.31-6.6,5.88-12.56,10.61-17.72,4.1-4.47,10.31-9.24,18.46-14.16,8.84-5.23,18.08-9.96,27.48-14.08,7.03-3.15,14.71-6.33,22.91-9.49v1.08Z"/>
+          </svg>
+        </div>
+        
         <Header />
 
         {/* Intro Section */}
@@ -57,7 +75,7 @@ function App() {
                 <li>Wij hebben bewust geen branche focus en werken voor veel verschillende klanten. Met als voorwaarde dat er een mooi inhoudelijk en uitdagend component aan zit</li>
                 <li>Samenwerken met senior engineers, architecten en product owners</li>
               </ul>
-              <p style={{ fontStyle: 'italic', color: '#64748b', marginTop: '24px' }}>
+              <p className="italic-text">
                 Onze ervaring zit niet in één trucje, maar in variatie. Verschillende omgevingen, verschillende vraagstukken en 
                 telkens weer nieuwe contexten. Dat houdt ons scherp.
               </p>
@@ -277,6 +295,8 @@ function App() {
             <ProjectCard title="Inspraak en afstemming in klussen" description="We luisteren naar wat je zoekt en stemmen daar samen op af." />
           </div>
         </Section>
+
+        <CallToAction />
 
         <Footer />
       </div>

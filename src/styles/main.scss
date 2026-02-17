@@ -34,40 +34,71 @@ html, body, #root {
   margin: 0;
   background: $white;
   overflow: hidden;
+  position: relative;
+}
+
+// Decorative SVG lines
+.svg-line {
+  position: absolute;
+  height: 500px;
+  width: 100px;
+  overflow: hidden;
+  color: $primary-dark;
+  pointer-events: none;
+  z-index: 1;
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.svg-line-left {
+  left: 0;
+  top: 300px;
+}
+
+.svg-line-right {
+  right: 0;
+  top: 1000px;
+  width: 180px;
+  transform: scaleX(-1);
+  
+  svg {
+    transform: scaleX(-1);
+  }
 }
 
 // Header
 .cv-header {
-  background: $gradient-dark;
-  color: $white;
+  background: $white;
+  color: $text-dark;
   padding: $spacing-4xl 0;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-    border-radius: $radius-circle;
-  }
 }
 
 .header-video {
   position: absolute;
   top: 0;
   right: 0;
-  width: 320px;
-  height: 320px;
+  width: 420px;
+  height: 420px;
   border-radius: 0 0 0 60%;
   overflow: hidden;
-  border-left: 4px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 4px solid rgba(255, 255, 255, 0.2);
-  box-shadow: -8px 8px 32px rgba(0, 0, 0, 0.3);
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   z-index: $z-header-video;
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: block;
+  }
 
   video {
     width: 100%;
@@ -79,7 +110,8 @@ html, body, #root {
 .header-content {
   position: relative;
   z-index: $z-header-content;
-  max-width: 70%;
+  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 $spacing-2xl;
 }
@@ -88,7 +120,8 @@ html, body, #root {
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-bottom: $spacing-sm;
+  margin-bottom: $spacing-2xl;
+  margin-top: -20px;
 }
 
 .vitas-logo {
@@ -97,18 +130,37 @@ html, body, #root {
 }
 
 .company-name {
-  font-size: $font-size-3xl;
-  font-weight: 800;
-  margin: 0 0 $spacing-sm 0;
-  letter-spacing: -2px;
-  line-height: 1.1;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  color: $primary-dark;
+
+  @media (min-width: 768px) {
+    font-size: 56px;
+  }
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: $primary-dark;
+  margin-bottom: 0;
+  max-width: 700px;
+  line-height: 1.4;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+    margin-bottom: 0;
+  }
 }
 
 .tagline {
-  font-size: 20px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: $spacing-lg;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #000;
+  margin-bottom: $spacing-2xl;
   max-width: 700px;
   font-weight: 400;
 }
@@ -125,10 +177,10 @@ html, body, #root {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: rgba(255, 255, 255, 0.9);
+  color: #000;
 
   a {
-    color: $white;
+    color: #000;
     text-decoration: none;
     font-weight: 500;
     transition: opacity $transition-fast;
@@ -152,47 +204,85 @@ html, body, #root {
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.15);
+  background: $white;
   backdrop-filter: blur(10px);
-  padding: $spacing-md 20px;
-  border-radius: $radius-sm;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: $spacing-lg 24px;
+  border-radius: $radius-md;
+  border: 1px solid $primary-dark;
   text-align: center;
-  transition: transform $transition-default, background $transition-default;
+  transition: all $transition-default;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
   &:hover {
-    transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 }
 
 .stat-number {
-  font-size: 42px;
-  font-weight: 800;
+  font-size: 36px;
+  font-weight: 700;
   margin-bottom: $spacing-xs;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
   line-height: 1;
+  color: $primary-dark;
+
+  @media (min-width: 768px) {
+    font-size: 42px;
+  }
 }
 
 .stat-label {
-  font-size: 13px;
+  font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  color: #000;
+}
+
+// Buttons
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: $radius-sm;
+  transition: all $transition-default;
+  cursor: pointer;
+  border: none;
+
+  &.btn-primary {
+    background: $primary-dark;
+    color: $white;
+
+    &:hover {
+      background: $primary-dark-light;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+    }
+  }
+
+  &.btn-secondary {
+    background: transparent;
+    color: $white;
+    border: 2px solid $white;
+
+    &:hover {
+      background: $white;
+      color: $primary-dark;
+    }
+  }
 }
 
 // Sections
 .cv-section {
-  padding: $spacing-2xl 0;
-  border-bottom: 1px solid $border-light;
-
-  &:last-child {
-    border-bottom: none;
-  }
+  padding: $spacing-4xl 0;
+  border-bottom: none;
 
   .content {
-    max-width: 70%;
+    max-width: 1280px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding: 0 $spacing-2xl;
@@ -200,14 +290,28 @@ html, body, #root {
 }
 
 .section-title {
-  @include section-title;
+  font-size: 24px;
+  font-weight: 700;
+  color: $primary-dark;
+  margin: 0 0 $spacing-lg 0;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
 }
 
 .content-text {
-  font-size: $font-size-base;
-  line-height: 1.8;
-  color: $text-medium;
-  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #000;
+  margin-bottom: $spacing-md;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.8;
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -230,34 +334,57 @@ html, body, #root {
 
 // Experience
 .experience-card {
-  background: $gradient-experience;
-  padding: $spacing-xl;
-  border-radius: $radius-md;
-  border: 2px solid $border-purple;
-  margin-top: $spacing-xs;
+  background: $white;
+  padding: 24px;
+  border-radius: $radius-sm;
+  border-bottom-left-radius: 2rem;
+  border: 1px solid $primary-dark;
+  margin-top: $spacing-md;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: box-shadow 300ms;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
 }
 
 .job-title {
-  font-size: $font-size-xl;
+  font-size: 24px;
   font-weight: 700;
-  color: $text-dark;
-  margin: 0 0 12px 0;
-  letter-spacing: -0.5px;
+  color: $primary-dark;
+  margin: 0 0 $spacing-sm 0;
+  letter-spacing: -0.3px;
+  line-height: 1.3;
+
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
 }
 
 .company-info {
-  font-size: 15px;
-  color: $text-medium;
+  font-size: 13px;
+  color: #000;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   margin-bottom: $spacing-md;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .job-description {
-  font-size: $font-size-base;
-  line-height: 1.8;
-  color: $text-medium;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #000;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.8;
+  }
 
   ul {
     margin: 20px 0;
@@ -268,6 +395,16 @@ html, body, #root {
     margin-bottom: 14px;
     padding-left: $spacing-xs;
   }
+
+  p {
+    margin: 0;
+  }
+}
+
+.italic-text {
+  font-style: italic;
+  color: $text-light;
+  margin-top: 24px;
 }
 
 // Skills
@@ -278,12 +415,17 @@ html, body, #root {
 
 .skill-card {
   background: $white;
-  border: 2px solid $border-purple;
+  border: 1px solid $primary-dark;
   border-radius: $radius-sm;
-  padding: 28px $spacing-md;
-  transition: all $transition-default;
+  border-bottom-left-radius: 2rem;
+  padding: 24px;
+  transition: box-shadow 300ms;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &::before {
     content: '';
@@ -296,18 +438,20 @@ html, body, #root {
   }
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(230, 90, 12, 0.15);
-    border-color: #1e40af;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 }
 
 .skill-name {
-  font-size: $font-size-md;
-  font-weight: 600;
-  color: $text-dark;
+  font-size: 15px;
+  font-weight: 700;
+  color: $primary-dark;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.5;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 // Projects
@@ -318,35 +462,53 @@ html, body, #root {
 
 .project-card {
   background: $white;
-  border: 2px solid $border-light;
+  border: 1px solid $primary-dark;
   border-radius: $radius-sm;
-  padding: $spacing-lg 28px;
-  @include card-hover;
-  border-color: #1e40af;
+  border-bottom-left-radius: 2rem;
+  padding: 24px;
+  transition: box-shadow 300ms;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  &:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
 }
 
 .project-title {
-  font-size: $font-size-lg;
+  font-size: 18px;
   font-weight: 700;
-  color: $text-dark;
-  margin: 0 0 12px 0;
+  color: $primary-dark;
+  margin: 0 0 $spacing-xs 0;
+  line-height: 1.4;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .project-description {
-  font-size: $font-size-md;
-  line-height: 1.7;
-  color: $text-light;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #000;
   margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: 15px;
+  }
 }
 
 // Culture
 .culture-section {
-  background: $gradient-dark;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6f 100%);
   color: $white;
-  padding: $spacing-2xl 0;
+  padding: $spacing-4xl 0;
 
   .content {
-    max-width: 70%;
+    max-width: 1280px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding: 0 $spacing-2xl;
@@ -354,10 +516,6 @@ html, body, #root {
 
   .section-title {
     color: $white;
-
-    &::after {
-      background: rgba(255, 255, 255, 0.3);
-    }
   }
 }
 
@@ -368,17 +526,18 @@ html, body, #root {
 }
 
 .culture-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: $radius-sm;
-  padding: $spacing-2xl 28px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: $radius-md;
+  padding: $spacing-xl 12px;
   text-align: center;
   transition: all $transition-default;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 9px 35px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -390,23 +549,31 @@ html, body, #root {
 }
 
 .culture-title {
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 700;
-  margin: 0 0 12px 0;
+  margin: 0 0 $spacing-xs 0;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 .culture-text {
-  font-size: $spacing-sm;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
   margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: 15px;
+  }
 }
 
 // Colleagues
 .colleagues-intro {
   font-size: $font-size-base;
   line-height: 1.8;
-  color: $text-medium;
+  color: #000;
   margin-bottom: $spacing-2xl;
 }
 
@@ -417,12 +584,17 @@ html, body, #root {
 
 .colleague-card {
   background: $white;
-  border: 2px solid $border-light;
+  border: 1px solid $primary-dark;
   border-radius: $radius-sm;
-  padding: $spacing-md 20px;
+  border-bottom-left-radius: 2rem;
+  padding: 24px;
   text-align: center;
-  @include card-hover;
-  border-color: #1e40af;
+  transition: box-shadow 300ms;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  
+  &:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
 }
 
 .colleague-avatar {
@@ -448,24 +620,32 @@ html, body, #root {
 }
 
 .colleague-name {
-  font-size: $font-size-base;
+  font-size: 15px;
   font-weight: 700;
-  color: $text-dark;
-  margin: 0 0 12px 0;
+  color: $primary-dark;
+  margin: 0 0 $spacing-xs 0;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .colleague-description {
-  font-size: $font-size-sm;
+  font-size: 13px;
   line-height: 1.6;
-  color: $text-light;
+  color: #000;
   margin: 0;
   text-align: left;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .subsection-title {
-  font-size: $spacing-md;
+  font-size: 18px;
   font-weight: 700;
-  color: $text-dark;
+  color: $primary-dark;
   margin: 48px 0 $spacing-md 0;
   letter-spacing: -0.5px;
 }
@@ -477,7 +657,7 @@ html, body, #root {
 }
 
 .comparison-box {
-  padding: $spacing-2xl;
+  padding: $spacing-lg;
   border-radius: $radius-md;
   border: 2px solid;
 
@@ -523,7 +703,7 @@ html, body, #root {
 }
 
 .comparison-title {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   margin: 0 0 $spacing-md 0;
   padding-bottom: $spacing-sm;
@@ -564,109 +744,368 @@ html, body, #root {
 .comparison-item-text {
   font-size: $spacing-sm;
   line-height: 1.6;
-  color: $text-medium;
+  color: #000;
   margin: 0;
+}
+
+// Call To Action
+.cta-section {
+  background: $primary-dark;
+  padding: $spacing-xl 0;
+  color: $white;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-svg-line {
+  position: absolute;
+  height: 500px;
+  width: 100px;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+  z-index: 1;
+  display: none;
+
+  @media (min-width: 1280px) {
+    display: block;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.cta-svg-line-left {
+  left: 0;
+  top: 50px;
+}
+
+.cta-svg-line-right {
+  right: 0;
+  top: 100px;
+  width: 180px;
+  transform: scaleX(-1);
+  
+  svg {
+    transform: scaleX(-1);
+  }
+}
+
+.cta-content {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $spacing-2xl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $spacing-xl;
+}
+
+.cta-text {
+  max-width: 800px;
+}
+
+.cta-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 0 0;
+  color: $white;
+
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+.cta-subtitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 0 0;
+  color: $white;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.cta-description {
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 $spacing-sm 0;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-lg;
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+  }
+}
+
+.cta-social-links {
+  display: flex;
+  gap: $spacing-lg;
+}
+
+.cta-icon {
+  width: 16px;
+  height: 16px;
+  color: $white;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.cta-button-wrapper {
+  display: inline-block;
+  
+  &:hover {
+    .cta-button-main span {
+      transform: translateX(2px);
+    }
+    
+    .cta-button-arrow {
+      transform: translateX(6px);
+    }
+  }
+}
+
+.cta-button-link {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.cta-button-main {
+  position: relative;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  background: $accent-orange;
+  color: $white;
+  border-left: 1px solid $white;
+  border-top: 1px solid $white;
+  border-bottom: 1px solid $white;
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  transition: all 0.3s ease-out;
+  
+  span {
+    font-size: 16px;
+    font-weight: 600;
+    padding-right: 16px;
+    transition: transform 0.3s ease-out;
+    white-space: nowrap;
+  }
+}
+
+.cta-button-arrow {
+  position: absolute;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease-out;
+  z-index: 2;
+}
+
+.cta-button-svg {
+  position: relative;
+  width: 18px;
+  height: 42px;
+  overflow: hidden;
+  z-index: 1;
+  
+  svg {
+    position: absolute;
+    right: -60px;
+    height: 42px;
+    
+    path {
+      fill: $accent-orange;
+      stroke: $white;
+    }
+  }
 }
 
 // Footer
 .cv-footer {
-  background: $gradient-dark;
-  padding: $spacing-3xl 0;
-  text-align: center;
-  color: $white;
+  background: $white;
+  padding: $spacing-xl 0 $spacing-xl;
+  color: $text-dark;
 }
 
 .footer-content {
-  max-width: 70%;
+  max-width: 1280px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 0 $spacing-2xl;
 }
 
-.footer-text {
-  font-size: $spacing-md;
-  font-weight: 600;
-  margin: 0 0 $spacing-sm 0;
-  line-height: 1.5;
+.footer-main {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: $spacing-4xl;
+  margin-bottom: $spacing-xl;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer-location {
-  font-size: $spacing-sm;
-  color: rgba(255, 255, 255, 0.8);
+.footer-section {
+  .vitas-logo {
+    height: 60px;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.footer-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 $spacing-md 0;
+  color: #000;
+}
+
+.footer-description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #000;
+  margin: 0;
+  max-width: 400px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+.footer-address {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #000;
+  margin: $spacing-md 0 0 0;
+}
+
+// Footer Legal Section
+.footer-legal-section {
+  background: $primary-dark;
+  padding: $spacing-sm 0;
+  color: $white;
+}
+
+.footer-legal-content {
+  max-width: 1280px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 $spacing-2xl;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  color: $white;
   margin: 0;
 }
 
-.footer-logo-container {
-  margin-top: $spacing-xl;
+.footer-legal {
   display: flex;
-  justify-content: center;
-}
+  gap: $spacing-lg;
 
-.footer-logo {
-  height: 60px;
-  width: auto;
+  a {
+    color: $white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: opacity $transition-fast;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }
 
 // Responsive
-@media (max-width: $breakpoint-desktop) {
-  .cv-section,
-  .culture-section {
-    .content {
-      max-width: 80%;
-    }
-  }
-
-  .header-content,
-  .footer-content {
-    max-width: 80%;
-  }
-}
-
-@media (max-width: $breakpoint-tablet) {
-  .cv-section,
-  .culture-section {
-    .content {
-      max-width: 90%;
-    }
-  }
-
-  .header-content,
-  .footer-content {
-    max-width: 90%;
-  }
-}
-
 @media (max-width: $breakpoint-mobile) {
   .cv-container {
     padding: 20px 10px;
   }
 
   .cv-header {
-    padding: $spacing-xl;
+    min-height: 500px;
+    padding: $spacing-2xl $spacing-md;
   }
 
   .cv-section,
   .culture-section {
-    padding: $spacing-xl 0;
+    padding: $spacing-2xl 0;
 
     .content {
-      max-width: 100%;
-      padding: 0 30px;
+      padding: 0 $spacing-md;
     }
   }
 
   .cv-footer {
-    padding: $spacing-xl 0;
+    padding: $spacing-2xl 0;
+  }
+
+  .footer-legal-section {
+    padding: $spacing-md 0;
+  }
+
+  .footer-legal-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 $spacing-md;
+  }
+
+  .footer-legal {
+    flex-direction: column;
+    gap: $spacing-sm;
   }
 
   .header-content,
   .footer-content {
-    max-width: 100%;
-    padding: 0 30px;
+    padding: 0 $spacing-md;
   }
 
   .company-name {
-    font-size: 40px;
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 20px;
   }
 
   .tagline {
@@ -674,15 +1113,26 @@ html, body, #root {
   }
 
   .section-title {
-    font-size: $font-size-xl;
+    font-size: 32px;
   }
 
   .content-text {
-    font-size: $spacing-sm;
+    font-size: $font-size-base;
   }
 
   .intro-image {
     float: none;
-    margin: 0 0 20px 0;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: $spacing-md;
+    text-align: center;
   }
 }
