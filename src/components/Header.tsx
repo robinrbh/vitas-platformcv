@@ -1,5 +1,5 @@
 import { VitasLogo } from './VitasLogo';
-import { LocationIcon, PhoneIcon, EmailIcon, GlobeIcon, MicrosoftIcon } from './Icons';
+import { LocationIcon, PhoneIcon, EmailIcon, GlobeIcon } from './Icons';
 import { StatCard } from './StatCard';
 
 export const Header = () => (
@@ -13,17 +13,14 @@ export const Header = () => (
       <div className="logo-container">
         <VitasLogo />
       </div>
-      <h1 className="company-name">Vitas Data</h1>
-      <p className="subtitle">
-        Een IT-partner die dichtbij blijft
-      </p>
+      <h1 className="company-name margin-sm">Vitas Data</h1>
       <p className="tagline">
         Een hechte club van ruim 70 senior collega's die samen werken aan software, cloud & data vraagstukken.
       </p>
       <div className="contact-row">
         <div className="contact-item">
           <LocationIcon />
-          <span>Joure & Groningen</span>
+          <span>Joure, Hilversum & Groningen</span>
         </div>
         <div className="contact-item">
           <PhoneIcon />
@@ -37,7 +34,14 @@ export const Header = () => (
           <a href="https://www.vitas.nl" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
             <GlobeIcon />
           </a>
-          <MicrosoftIcon />
+          <a href="https://www.vitas.nl">vitas.nl</a>
+          <div className="languages-icons">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scala/scala-original.svg" alt="Scala" />
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" alt="R" />
+          </div>
         </div>
       </div>
       <div className="stats-grid">

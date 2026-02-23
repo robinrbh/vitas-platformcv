@@ -41,16 +41,7 @@ export const Footer = () => {
           </div>
         </div>
       </footer>
-      
-      <div className="footer-legal-section">
-        <div className="footer-legal-content">
-          <p className="footer-copyright">© 2026 Vitas Holding B.V. Alle rechten voorbehouden.</p>
-          <div className="footer-legal">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Algemene Voorwaarden</a>
-          </div>
-        </div>
-      </div>
+    
     </>
   );
 };

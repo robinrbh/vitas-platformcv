@@ -20,6 +20,19 @@ html, body, #root {
   box-sizing: border-box;
 }
 
+// Utility Classes
+.margin-sm {
+  margin-bottom: $spacing-sm !important;
+}
+
+.margin-md {
+  margin-bottom: $spacing-md !important;
+}
+
+.margin-lg {
+  margin-bottom: $spacing-lg !important;
+}
+
 .cv-container {
   width: 100%;
   height: 100%;
@@ -113,7 +126,11 @@ html, body, #root {
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 $spacing-2xl;
+  padding: 0 $spacing-sm;
+
+  @media (min-width: 768px) {
+    padding: 0 $spacing-2xl;
+  }
 }
 
 .logo-container {
@@ -168,7 +185,7 @@ html, body, #root {
 .contact-row {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-md;
+  gap: $spacing-lg;
   margin-bottom: $spacing-2xl;
   font-size: $spacing-sm;
 }
@@ -188,6 +205,26 @@ html, body, #root {
     &:hover {
       opacity: 0.8;
     }
+  }
+}
+
+.languages-label {
+  font-size: $spacing-sm;
+  font-weight: 400;
+  color: #000;
+  margin-left: $spacing-md;
+}
+
+.languages-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-left: 8px;
+  
+  img {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -233,7 +270,7 @@ html, body, #root {
 }
 
 .stat-label {
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-weight: 600;
@@ -277,7 +314,7 @@ html, body, #root {
 
 // Sections
 .cv-section {
-  padding: $spacing-4xl 0;
+  padding: $spacing-xl 0;
   border-bottom: none;
 
   .content {
@@ -285,7 +322,11 @@ html, body, #root {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 $spacing-2xl;
+    padding: 0 $spacing-sm;
+
+    @media (min-width: 768px) {
+      padding: 0 $spacing-2xl;
+    }
   }
 }
 
@@ -303,7 +344,7 @@ html, body, #root {
 }
 
 .content-text {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: #000;
   margin-bottom: $spacing-md;
@@ -342,42 +383,46 @@ html, body, #root {
   margin-top: $spacing-md;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   transition: box-shadow 300ms;
-  display: flex;
-  flex-direction: column;
+  overflow: auto;
 
   &:hover {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 }
 
+.company-logo {
+  float: right;
+  margin-left: $spacing-md;
+  margin-bottom: $spacing-md;
+  
+  svg, img {
+    height: 40px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+  }
+}
+
 .job-title {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   color: $primary-dark;
   margin: 0 0 $spacing-sm 0;
   letter-spacing: -0.3px;
   line-height: 1.3;
-
-  @media (min-width: 768px) {
-    font-size: 28px;
-  }
 }
 
 .company-info {
-  font-size: 13px;
+  font-size: 16px;
   color: #000;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: $spacing-md;
-
-  @media (min-width: 768px) {
-    font-size: 14px;
-  }
 }
 
 .job-description {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: #000;
 
@@ -427,23 +472,13 @@ html, body, #root {
   flex-direction: column;
   justify-content: space-between;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: $accent-orange;
-  }
-
   &:hover {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 }
 
 .skill-name {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   color: $primary-dark;
   margin: 0;
@@ -490,14 +525,11 @@ html, body, #root {
 }
 
 .project-description {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   color: #000;
   margin: 0;
-
-  @media (min-width: 768px) {
-    font-size: 15px;
-  }
+  flex-grow: 1;
 }
 
 // Culture
@@ -511,7 +543,11 @@ html, body, #root {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 $spacing-2xl;
+    padding: 0 $spacing-sm;
+
+    @media (min-width: 768px) {
+      padding: 0 $spacing-2xl;
+    }
   }
 
   .section-title {
@@ -529,7 +565,8 @@ html, body, #root {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: $radius-md;
+  border-radius: $radius-sm;
+  border-bottom-left-radius: 2rem;
   padding: $spacing-xl 12px;
   text-align: center;
   transition: all $transition-default;
@@ -559,13 +596,40 @@ html, body, #root {
 }
 
 .culture-text {
-  font-size: 14px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
   margin: 0;
+}
+
+.culture-highlight-section {
+  padding: $spacing-xl 0;
+  background: $white;
+
+  .content {
+    max-width: 1280px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 $spacing-sm;
+
+    @media (min-width: 768px) {
+      padding: 0 $spacing-2xl;
+    }
+  }
+}
+
+.culture-highlight {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 1000px;
+  line-height: 1.3;
+  color: #000;
 
   @media (min-width: 768px) {
-    font-size: 15px;
+    font-size: 48px;
   }
 }
 
@@ -597,49 +661,62 @@ html, body, #root {
   }
 }
 
+.colleague-avatars {
+  display: flex;
+  gap: $spacing-sm;
+  justify-content: center;
+  margin-bottom: $spacing-sm;
+}
+
 .colleague-avatar {
   width: 80px;
   height: 80px;
   border-radius: $radius-circle;
-  margin: 0 auto $spacing-sm;
   object-fit: cover;
   border: 3px solid $border-purple;
+  
+  .colleague-avatars & {
+    margin: 0;
+  }
+  
+  &:not(.colleague-avatars &) {
+    margin: 0 auto $spacing-sm;
+  }
 }
 
 .colleague-avatar-placeholder {
   width: 80px;
   height: 80px;
   border-radius: $radius-circle;
-  margin: 0 auto $spacing-sm;
   background: $gradient-dark;
   @include flex-center;
   font-size: 32px;
   font-weight: 700;
   color: $white;
   border: 3px solid $border-purple;
-}
-
-.colleague-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: $primary-dark;
-  margin: 0 0 $spacing-xs 0;
-
-  @media (min-width: 768px) {
-    font-size: 16px;
+  
+  .colleague-avatars & {
+    margin: 0;
+  }
+  
+  &:not(.colleague-avatars &) {
+    margin: 0 auto $spacing-sm;
   }
 }
 
+.colleague-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: $primary-dark;
+  margin: 0 0 $spacing-xs 0;
+}
+
 .colleague-description {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.6;
   color: #000;
   margin: 0;
   text-align: left;
-
-  @media (min-width: 768px) {
-    font-size: 14px;
-  }
 }
 
 .subsection-title {
@@ -658,36 +735,41 @@ html, body, #root {
 
 .comparison-box {
   padding: $spacing-lg;
-  border-radius: $radius-md;
+  border-radius: $radius-sm;
+  border-bottom-left-radius: 2rem;
   border: 2px solid;
 
   &.negative {
-    background: $gradient-negative;
-    border-color: $error-red-light;
+    background: $white;
+    border-color: #9ca3af;
 
     .comparison-title {
-      color: $error-red;
-      border-color: rgba(220, 38, 38, 0.2);
+      color: #000;
+      border-color: rgba(0, 0, 0, 0.1);
     }
 
     .comparison-item::before {
       content: '✕';
-      background: $error-red-light;
-      color: $error-red;
+      background: #e5e7eb;
+      color: #6b7280;
     }
 
     .comparison-item-title {
-      color: $error-red-dark;
+      color: #000;
+    }
+
+    .comparison-item-text {
+      color: #000;
     }
   }
 
   &.positive {
-    background: $gradient-positive;
-    border-color: $success-green-light;
+    background: $white;
+    border-color: $primary-dark;
 
     .comparison-title {
-      color: $success-green;
-      border-color: rgba(22, 163, 74, 0.2);
+      color: #000;
+      border-color: rgba(0, 0, 0, 0.1);
     }
 
     .comparison-item::before {
@@ -697,7 +779,7 @@ html, body, #root {
     }
 
     .comparison-item-title {
-      color: $success-green-dark;
+      color: #000;
     }
   }
 }
@@ -744,7 +826,6 @@ html, body, #root {
 .comparison-item-text {
   font-size: $spacing-sm;
   line-height: 1.6;
-  color: #000;
   margin: 0;
 }
 
@@ -797,12 +878,16 @@ html, body, #root {
   max-width: 1280px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 $spacing-2xl;
+  padding: 0 $spacing-sm;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: $spacing-xl;
+
+  @media (min-width: 768px) {
+    padding: 0 $spacing-2xl;
+  }
 }
 
 .cta-text {
@@ -957,7 +1042,11 @@ html, body, #root {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 $spacing-2xl;
+  padding: 0 $spacing-sm;
+
+  @media (min-width: 768px) {
+    padding: 0 $spacing-2xl;
+  }
 }
 
 .footer-main {
@@ -1035,7 +1124,7 @@ html, body, #root {
 }
 
 .footer-copyright {
-  font-size: 14px;
+  font-size: 16px;
   color: $white;
   margin: 0;
 }
@@ -1047,7 +1136,7 @@ html, body, #root {
   a {
     color: $white;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     transition: opacity $transition-fast;
 
     &:hover {
@@ -1059,7 +1148,7 @@ html, body, #root {
 // Responsive
 @media (max-width: $breakpoint-mobile) {
   .cv-container {
-    padding: 20px 10px;
+    padding: 0;
   }
 
   .cv-header {

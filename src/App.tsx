@@ -1,6 +1,5 @@
 import './styles/main.scss'
 import { Header } from './components/Header'
-import { Footer } from './components/Footer'
 import { CallToAction } from './components/CallToAction'
 import { Section } from './components/Section'
 import { SkillCard } from './components/SkillCard'
@@ -8,7 +7,8 @@ import { ProjectCard } from './components/ProjectCard'
 import { CultureCard } from './components/CultureCard'
 import { ColleagueCard } from './components/ColleagueCard'
 import { ComparisonBox } from './components/ComparisonBox'
-import { MicrosoftIcon } from './components/Icons'
+import { VitasLogo } from './components/VitasLogo'
+import { MessageIcon, ThumbsUpIcon, ZapIcon, CodeIcon, UsersIcon, MinimizeIcon } from './components/Icons'
 
 function App() {
   return (
@@ -43,13 +43,13 @@ function App() {
             />
           </div>
           <p className="content-text">
-            We weten dat de markt niet meer werkt zoals vroeger. Als senior data engineer heb je het voor het kiezen. 
+            We weten dat de markt niet meer werkt zoals vroeger. Als senior data engineer/data architect heb je het voor het kiezen. 
             Juist daarom sturen wij dit CV. Omdat wij bij jou willen solliciteren.
           </p>
           <p className="content-text">
             We zijn benieuwd naar jou. Naar hoe je naar je vak kijkt, waar je goed in bent en wat jij nodig hebt om met plezier te werken. 
-            Wij geloven dat een goede samenwerking twee kanten op werkt en lichten graag toe hoe onze organisatie eruit ziet en hoe wij werken. 
-            En vooral of dit bij jou past.
+            Wij geloven dat een goede samenwerking twee kanten op werkt en lichten graag toe hoe onze organisatie eruitziet en hoe wij werken. 
+            En vooral in gesprek gaan in alle laagdrempeligheid om te kijken of dit bij jou past.
           </p>
           <p className="content-text">
             We hebben al een volwassen en stabiele software & cloud organisatie staan. Met ervaren Azure- en cloud engineers werken we aan 
@@ -65,19 +65,75 @@ function App() {
         {/* Experience Section */}
         <Section title="Werkervaring">
           <div className="experience-card">
-            <h3 className="job-title">Senior IT-dienstverlener (Software, Cloud & Data)</h3>
-            <div className="company-info">Vitas | 2004 - Heden</div>
+            <div className="company-logo">
+              <VitasLogo />
+            </div>
+            <h3 className="job-title">Zelfstandig verder</h3>
+            <div className="company-info">Vitas | 2016 – Heden</div>
             <div className="job-description">
               <ul>
                 <li>Ontwerpen en realiseren van Azure- en cloudplatformen</li>
                 <li>Softwareontwikkeling binnen het Microsoft-ecosysteem</li>
-                <li>Opzetten en doorontwikkelen van data- en analyticsplatformen in Fabric, Databricks & Azure data factory</li>
-                <li>Wij hebben bewust geen branche focus en werken voor veel verschillende klanten. Met als voorwaarde dat er een mooi inhoudelijk en uitdagend component aan zit</li>
                 <li>Samenwerken met senior engineers, architecten en product owners</li>
               </ul>
-              <p className="italic-text">
+              <p className="content-text">
                 Onze ervaring zit niet in één trucje, maar in variatie. Verschillende omgevingen, verschillende vraagstukken en 
                 telkens weer nieuwe contexten. Dat houdt ons scherp.
+              </p>
+              <ul>
+                <li>Opzetten en doorontwikkelen van data- en analyticsplatformen in Fabric, Databricks & Azure data factory</li>
+                <li>Bewust geen branche focus, we werken voor veel verschillende klanten. Met als voorwaarde dat er een mooi inhoudelijk en uitdagend component in zit voor onze mensen.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="experience-card">
+            <div className="company-logo">
+              <img src="/images/companies/deloitte.png" alt="Deloitte" />
+            </div>
+            <h3 className="job-title">Verder als onderdeel van Deloitte Digital</h3>
+            <div className="company-info">Deloitte Digital | 2013 – 2016</div>
+            <div className="job-description">
+              <p className="content-text">
+                In 2013 is Vivens verkocht aan Deloitte Digital.
+              </p>
+              <p className="content-text">
+                Vivens trok in de voorgaande periode nadrukkelijk aandacht door hun snelle groei en partnerschap met Salesforce; 
+                uiteindelijk is een overnameovereenkomst met Deloitte gesloten en werd Vivens onderdeel van Deloitte Digital.
+              </p>
+              <p className="content-text">
+                De Salesforce-tak sloot cultureel goed aan; voor Microsoft development was de fit minder (meer nadruk op profilering dan bouwen).
+              </p>
+              <p className="content-text">
+                In goede afstemming volgde een reverse takeover: Microsoft-collega's verder als Vitas.
+              </p>
+              <p className="content-text">
+                Samenwerking met Deloitte tot op heden sterk, we trekken nog steeds veel op in projecten. Het Testen voor Toegang 
+                platform tijdens corona is hier een mooi voorbeeld van.
+              </p>
+            </div>
+          </div>
+
+          <div className="experience-card">
+            <div className="company-logo">
+              <img src="/images/companies/vivens.png" alt="Vivens" />
+            </div>
+            <h3 className="job-title">Start als Vivens</h3>
+            <div className="company-info">Vivens | 2004 – 2013</div>
+            <div className="job-description">
+              <p className="content-text">
+                Vivens was de eerste officiële Salesforce partner in Noord-Europa en kreeg de status platinium partner vanuit het 
+                hoofdkantoor uit San Francisco.
+              </p>
+              <p className="content-text">
+                Vivens was destijds de eerste partij uit Noord-Europa die officieel Salesforce trainingen mochten verzorgen en ze vlogen 
+                de hele wereld over.
+              </p>
+              <p className="content-text">
+                Vivens hield zich tevens bezig met Microsoft development in .NET en Sharepoint.
+              </p>
+              <p className="content-text">
+                Focus op inhoud, vakmanschap en langjarige klantrelaties, de basis voor de latere doorontwikkeling richting cloud en data.
               </p>
             </div>
           </div>
@@ -136,32 +192,32 @@ function App() {
         <Section title="Onze ongeschreven regels" className="culture-section">
           <div className="culture-grid">
             <CultureCard 
-              icon={<MicrosoftIcon className="culture-icon" />}
+              icon={<MessageIcon className="culture-icon" />}
               title="Inhoud boven alles"
               text="Het beste argument wint, niet de hoogste functie"
             />
             <CultureCard 
-              icon={<MicrosoftIcon className="culture-icon" />}
+              icon={<ThumbsUpIcon className="culture-icon" />}
               title="Je mag het oneens zijn"
               text="Graag zelfs, zo worden we beter"
             />
             <CultureCard 
-              icon={<MicrosoftIcon className="culture-icon" />}
+              icon={<ZapIcon className="culture-icon" />}
               title="Tafeltennis wordt erg serieus genomen"
               text="En dat is geen grapje"
             />
             <CultureCard 
-              icon={<MicrosoftIcon className="culture-icon" />}
+              icon={<CodeIcon className="culture-icon" />}
               title="Van idee tot productie is één geheel"
               text="Je bouwt het, je begrijpt het, je verbetert het."
             />
             <CultureCard 
-              icon={<MicrosoftIcon className="culture-icon" />}
+              icon={<UsersIcon className="culture-icon" />}
               title="Samenwerken is geen formaliteit"
               text="Sparren mag altijd, ook zonder agenda."
             />
             <CultureCard 
-              icon={<MicrosoftIcon className="culture-icon" />}
+              icon={<MinimizeIcon className="culture-icon" />}
               title="Complexiteit is geen doel"
               text="Als het simpeler kan, moet het simpeler."
             />
@@ -171,12 +227,12 @@ function App() {
         {/* Not For Everyone Section */}
         <Section title="Niet voor iedereen">
           <p className="content-text" style={{ fontStyle: 'italic', marginBottom: '40px' }}>
-            (en dat is helemaal oké)
+            (en dat is helemaal okay)
           </p>
           <div className="comparison-container">
             <ComparisonBox 
               type="negative"
-              title="Misschien niet bij je past"
+              title="Waarom Vitas Misschien niet bij je past"
               items={[
                 {
                   title: "Instructies boven initiatief",
@@ -194,7 +250,7 @@ function App() {
             />
             <ComparisonBox 
               type="positive"
-              title="Waarom het wél kan klikken"
+              title="Waarom het wel kan klikken"
               items={[
                 {
                   title: "Inhoudelijke invloed",
@@ -216,12 +272,10 @@ function App() {
         {/* Expectations Section */}
         <Section title="Wat jij van ons mag verwachten">
           <div className="projects-grid">
-            <ProjectCard title="Salaris" description="€5.500 - €7.600, meegroeiend met je ontwikkeling" />
-            <ProjectCard title="Mobiliteit" description="Leaseauto of mobiliteitsvergoeding alternatieve vervoersregeling van circa €900" />
-            <ProjectCard title="StiPP-pensioenregeling" description="Totale premie ca. 23,4%, waarvan ⅔ van de premie wordt betaald door de werkgever. Pensioen is inclusief partner- en wezenpensioen en aanvullende sociale dekkingen" />
-            <ProjectCard title="Inkomensbescherming" description="Collectieve WIA/WGA-verzekeringen, volledig bekostigd door de werkgever" />
-            <ProjectCard title="Thuiswerkvergoeding" description="€22,50 netto per maand" />
-            <ProjectCard title="Telefoonvergoeding" description="€25 netto per maand" />
+            <ProjectCard title="Salaris" description="€ 5.500 - € 7.600, meegroeiend met je ontwikkeling" />
+            <ProjectCard title="Mobiliteit" description="Leasebudget van € 975 of alternatieve vervoersregeling van 85% van het lease budget" />
+            <ProjectCard title="StiPP-pensioenregeling" description="Totale premie ca. 23,4%, waarvan tweederde van de premie wordt betaald door de werkgever. Pensioen is inclusief partner- en wezenpensioen en aanvullende sociale dekkingen" />
+            <ProjectCard title="Thuiswerkvergoeding & telefoonvergoeding" description="€ 47,50 netto per maand" />
             <ProjectCard title="Laptop naar keuze" description="Kies de laptop die bij jou past" />
             <ProjectCard title="26 vakantiedagen" description="Plus 8% vakantiegeld, jaarlijks uitbetaald in mei" />
           </div>
@@ -238,21 +292,25 @@ function App() {
               initial="M"
               name="Melis"
               description="Komt uit de techniek en weet hoe het is om dingen vanaf de basis op te bouwen. In 2024 sloot hij zich aan bij Vitas als mede-aandeelhouder en kartrekker van Vitas Data. Eerder richtte hij samen met zijn broer een succesvol IT-integratiebedrijf op. Met meer dan 25 jaar ervaring beweegt hij zich net zo makkelijk tussen techniek, projecten, commercie en mensen."
+              avatarUrl="/images/colleagues/melis.jpeg"
             />
             <ColleagueCard 
               initial="N"
               name="Nick"
               description="Onze data-engineer met een sporthart: als hij niet met data bezig is, staat hij aan de start van een Hyrox maar je kunt hem ook tegenkomen op een festival. Na een studie in sport maakte hij in 2017 de overstap naar data en behaalde hij naast fulltime werk zijn MSc BPM & IT. Via Sogeti en Fellowmind ontwikkelde hij zich tot een ervaren data engineer. Inmiddels is hij trekker bij Tenaz voor het greenfeeld opzetten van de architectuur van een Microsoft Fabric-omgeving."
+              avatarUrl="/images/colleagues/nick.png"
             />
             <ColleagueCard 
               initial="J"
               name="Jay"
               description="Heeft een sterke academische achtergrond en rolde vanuit onderzoek en statistiek het data-veld in. Hij startte zelfs aan een PhD en ontwikkelde zich door tot businessgerichte Data & AI-architect. Jay is sociaal, brengt energie en houdt van eenvoud in complexe vraagstukken. Buiten werktijd kookt hij graag en is hij vaak op pad met zijn twee honden."
+              avatarUrl="/images/colleagues/jay.png"
             />
             <ColleagueCard 
               initial="R"
               name="Robin"
               description="Startte bij ons direct na zijn studie Artificial Intelligence en begon als software engineer, onder andere aan Testen voor Toegang. Hij maakte daarna de stap richting data engineering en werkte aan mooie Databricks-projecten. Nu werkt hij veel met GIS data aan een Fabric-implementatie voor Provincie Drenthe, mooi dichtbij zijn Drentse roots. Robin is altijd vrolijk, houdt van waterpolo en is vaak degene die op bedrijfsfeestjes als laatste het licht uitdoet."
+              avatarUrl="/images/colleagues/robin.jpg"
             />
           </div>
 
@@ -262,14 +320,18 @@ function App() {
               initial="E"
               name="Enrico"
               description="Onze salescollega die altijd positief is en overal kansen ziet. Betrokken, scherp op de juiste match en altijd in voor een praatje. Als hij niet aan de telefoon zit is hij vaak te vinden op de golfbaan of op het voetbalveld."
+              avatarUrl="/images/colleagues/enrico.jpg"
             />
             <ColleagueCard 
               initial="J&A"
               name="Johannes & Arjen"
               description="Jeugdvrienden van Terschelling en ondernemen sinds begin jaren 2000 samen. Commercieel handig, met oog voor de mens en altijd met gevoel voor humor. Ze bepalen de koers, maar blijven benaderbaar en dichtbij."
+              avatarUrl="/images/colleagues/johannes.jpg"
+              secondAvatarUrl="/images/colleagues/arjen.jpg"
             />
             <ColleagueCard 
-              initial="I&S"
+              initial="I"
+              secondInitial="S"
               name="Irma & Selina"
               description="De drijvende krachten achter de schermen. Van onboarding, administratie tot contractafhandeling en alles daartussenin: zij zorgen dat alles klopt. Warm, hartelijk en altijd gezellig."
             />
@@ -277,12 +339,19 @@ function App() {
               initial="H"
               name="Hans"
               description="Zet mensen altijd op de eerste plaats. Een echte Groninger, loopt hard en geniet net zo fanatiek van de derde helft in de voetbalkantine."
+              avatarUrl="/images/colleagues/hans.jpg"
             />
           </div>
-          <p className="content-text" style={{ fontStyle: 'italic', textAlign: 'center', marginTop: '40px', color: '#64748b' }}>
-            Korte lijnen, weinig hiërarchie en altijd ruimte om het gesprek aan te gaan.
-          </p>
         </Section>
+
+        {/* Culture Highlight */}
+        <section className="culture-highlight-section">
+          <div className="content">
+            <p className="culture-highlight">
+              Korte lijnen, weinig hiërarchie en altijd ruimte om het gesprek aan te gaan.
+            </p>
+          </div>
+        </section>
 
         {/* Why People Stay */}
         <Section title="Waarom mensen bij Vitas blijven">
@@ -297,8 +366,6 @@ function App() {
         </Section>
 
         <CallToAction />
-
-        <Footer />
       </div>
     </div>
   )
